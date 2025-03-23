@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tickets kaufen - ZagMobi</title>
+
+  <!-- Material Design 3 Icons und Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/14.0.0/material-components-web.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <!-- Eigene Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/tickets.css">
+</head>
+<body>
+<!-- Header -->
+<header class="mdc-top-app-bar app-bar">
+  <div class="mdc-top-app-bar__row">
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="assets/logo.png" alt="ZagMobi Logo" class="logo">
+        </a>
+      </div>
+    </section>
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Startseite</a></li>
+          <li><a href="linien.html" class="nav-link">Linien & Fahrpläne</a></li>
+          <li><a href="tickets.html" class="nav-link active">Tickets</a></li>
+          <li><a href="ueber-uns.html" class="nav-link">Über uns</a></li>
+          <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+        </ul>
+      </nav>
+    </section>
+  </div>
+</header>
+
+<main>
+  <!-- Page Title -->
+  <section class="page-title">
+    <div class="container">
+      <h1 class="title-large">Tickets kaufen</h1>
+      <p class="headline-medium">Wählen Sie Ihr gewünschtes Ticket für Ihre Reise mit ZagMobi</p>
+    </div>
+  </section>
+
+  <!-- Ticket Categories Navigation -->
+  <section class="ticket-navigation">
+    <div class="container">
+      <div class="nav-tabs">
+        <button class="nav-tab active" data-target="bus-tickets">Bustickets</button>
+        <button class="nav-tab" data-target="tram-tickets">Straßenbahntickets</button>
+        <button class="nav-tab" data-target="sbahn-tickets">S-Bahn</button>
+        <button class="nav-tab" data-target="regional-tickets">Regionalbahn</button>
+        <button class="nav-tab" data-target="ice-tickets">Fernverkehr <span class="beta-tag">Probebetrieb</span></button>
+        <button class="nav-tab" data-target="ubahn-tickets">U-Bahn <span class="soon-tag">Geplant</span></button>
+        <button class="nav-tab" data-target="combined-tickets">Kombitickets</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ticket Sections -->
+  <section class="ticket-sections">
+    <div class="container">
+      <!-- Bus Tickets -->
+      <div id="bus-tickets" class="ticket-section active">
+        <div class="section-header bus-header">
+          <span class="material-icons">directions_bus</span>
+          <h2 class="title-large">Bustickets</h2>
+        </div>
+
+        <div class="ticket-grid">
+          <div class="ticket-card">
+            <div class="ticket-card-header bus">
+              <h3 class="title-medium">Einzelfahrt Bus</h3>
+              <span class="price">2,50 €</span>
+            </div>
+            <div class="ticket-card-content">
+              <ul class="ticket-features">
+                <li>Gültig für eine Fahrt in eine Richtung</li>
+                <li>Umsteigen innerhalb von 60 Minuten möglich</li>
+                <li>Gültig für alle Buslinien</li>
+                <li>Keine Rückfahrt möglich</li>
+              </ul>
+              <div class="ticket-purchase">
+                <div class="quantity-selector">
+                  <button class="quantity-btn minus">−</button>
+                  <input type="number" min="1" value="1" class="quantity-input">
+                  <button class="quantity-btn plus">+</button>
+                </div>
+                <button class="mdc-button mdc-button--raised primary-button buy-ticket-btn" data-ticket="Einzelfahrt Bus" data-price="2.50" data-type="Bus">
+                  <span class="mdc-button__ripple"></span>
+                  <span class="mdc-button__label">Kaufen</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-card-header bus">
+              <h3 class="title-medium">4-Fahrten-Karte Bus</h3>
+              <span class="price">9,00 €</span>
+            </div>
+            <div class="ticket-card-content">
+              <ul class="ticket-features">
+                <li>Gültig für vier Einzelfahrten</li>
+                <li>10% günstiger als vier Einzeltickets</li>
+                <li>Übertragbar auf andere Personen</li>
+                <li>Gültig für 30 Tage ab Kauf</li>
+              </ul>
+              <div class="ticket-purchase">
+                <div class="quantity-selector">
+                  <button class="quantity-btn minus">−</button>
+                  <input type="number" min="1" value="1" class="quantity-input">
+                  <button class="quantity-btn plus">+</button>
+                </div>
+                <button class="mdc-button mdc-button--raised primary-button buy-ticket-btn" data-ticket="4-Fahrten-Karte Bus" data-price="9.00" data-type="Bus">
+                  <span class="mdc-button__ripple"></span>
+                  <span class="mdc-button__label">Kaufen</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-card-header bus">
+              <h3 class="title-medium">Tageskarte Bus</h3>
+              <span class="price">5,80 €</span>
+            </div>
+            <div class="ticket-card-content">
+              <ul class="ticket-features">
+                <li>Unbegrenzte Fahrten an einem Tag</li>
+                <li>Gültig bis Betriebsschluss</li>
+                <li>Ideal für Tagesausflüge</li>
+                <li>Nicht übertragbar</li>
+              </ul>
+              <div class="ticket-purchase">
+                <div class="quantity-selector">
+                  <button class="quantity-btn minus">−</button>
+                  <input type="number" min="1" value="1" class="quantity-input">
+                  <button class="quantity-btn plus">+</button>
+                </div>
+                <button class="mdc-button mdc-button--raised primary-button buy-ticket-btn" data-ticket="Tageskarte Bus" data-price="5.80" data-type="Bus">
+                  <span class="mdc-button__ripple"></span>
+                  <span class="mdc-button__label">Kaufen</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-card-header bus">
+              <h3 class="title-medium">Monatskarte Bus</h3>
+              <span class="price">64,00 €</span>
+            </div>
+            <div class="ticket-card-content">
+              <ul class="ticket-features">
+                <li>Unbegrenzte Fahrten für einen Monat</li>
+                <li>Übertragbar auf andere Person</li>
+                <li>Ideal für Pendler</li>
+                <li>Gültig ab gewähltem Startdatum</li>
+              </ul>
+              <div class="ticket-purchase">
+                <div class="date-selector">
+                  <label for="start-date">Startdatum:</label>
+                  <input type="date" id="start-date" class="date-input">
+                </div>
+                <button class="mdc-button mdc-button--raised primary-button buy-ticket-btn" data-ticket="Monatskarte Bus" data-price="64.00" data-type="Bus">
+                  <span class="mdc-button__ripple"></span>
+                  <span class="mdc-button__label">Kaufen</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Straßenbahn Tickets -->
+      <div id="tram-tickets" class="ticket-section">
+        <div class="section-header tram-header">
+          <span class="material-icons">tram</span>
+          <h2 class="title-large">Straßenbahntickets</h2>
+        </div>
+
+        <div class="ticket-grid">
+          <div class="ticket-card">
+            <div class="ticket-card-header tram">
+              <h3 class="title-medium">Einzelfahrt Straßenbahn</h3>
+              <span class="price">2,50 €</span>
+            </div>
+            <div class="ticket-card-content">
+              <ul class="ticket-features">
+                <li>Gültig für eine Fahrt in eine Richtung</li>
+                <li>Umsteigen innerhalb von 60 Minuten möglich</li>
+                <li>Gültig für alle Straßenbahnlinien</li>
+                <li>Keine Rückfahrt möglich</li>
+              </ul>
+              <div class="ticket-purchase">
+                <div class="quantity-selector">
+                  <button class="quantity-btn minus">−</button>
+                  <input type="number" min="1" value="1" class="quantity-input">
+                  <button class="quantity-btn plus">+</button>
+                </div>
+                <button class="mdc-button mdc-button--raised primary-button buy-ticket-btn" data-ticket="Einzelfahrt Straßenbahn" data-price="2.50" data-type="Straßenbahn">
+                  <span class="mdc-button__ripple"></span>
+                  <span class="mdc-button__label">Kaufen</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Weitere Straßenbahn-Tickets wie im Original -->
+        </div>
+      </div>
+
+      <!-- S-Bahn Tickets -->
+      <div id="sbahn-tickets" class="ticket-section">
+        <!-- S-Bahn-Tickets Inhalt -->
+      </div>
+
+      <!-- Regionalbahn Tickets -->
+      <div id="regional-tickets" class="ticket-section">
+        <!-- Regionalbahn-Tickets Inhalt -->
+      </div>
+
+      <!-- Fernverkehr Tickets -->
+      <div id="ice-tickets" class="ticket-section">
+        <!-- Fernverkehr-Tickets Inhalt -->
+      </div>
+
+      <!-- U-Bahn Tickets (Geplant) -->
+      <div id="ubahn-tickets" class="ticket-section">
+        <!-- U-Bahn-Tickets Inhalt -->
+      </div>
+
+      <!-- Kombitickets -->
+      <div id="combined-tickets" class="ticket-section">
+        <!-- Kombitickets Inhalt -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Ticket-Konfigurator-Modal -->
+  <div class="modal" id="ticketConfigModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="title-medium">Ticket konfigurieren</h3>
+        <span class="material-icons close-modal" id="closeTicketConfigModal">close</span>
+      </div>
+      <div class="modal-body">
+        <div class="ticket-config-details">
+          <h4 id="selectedTicketName">Einzelfahrt</h4>
+          <p id="selectedTicketType">Bus/Straßenbahn</p>
+          <div class="price-tag" id="selectedTicketPrice">2,50 €</div>
+        </div>
+
+        <div class="ticket-config-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="passenger-name">Name des Fahrgasts</label>
+              <input type="text" id="passenger-name" class="form-input" placeholder="Vor- und Nachname">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="travel-date">Reisedatum</label>
+              <input type="date" id="travel-date" class="form-input">
+            </div>
+            <div class="form-field">
+              <label for="travel-time">Uhrzeit</label>
+              <input type="time" id="travel-time" class="form-input">
+            </div>
+          </div>
+
+          <div class="form-row route-selection" id="routeSelectionRegular">
+            <div class="form-field">
+              <label for="start-stop">Starthaltestelle</label>
+              <select id="start-stop" class="form-input">
+                <option value="" disabled selected>Bitte wählen</option>
+                <option>Hauptbahnhof</option>
+                <option>Marktplatz</option>
+                <option>Universität</option>
+                <option>Einkaufszentrum</option>
+                <option>Bergwerksviertel</option>
+                <option>Werksgelände</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="end-stop">Zielhaltestelle</label>
+              <select id="end-stop" class="form-input">
+                <option value="" disabled selected>Bitte wählen</option>
+                <option>Hauptbahnhof</option>
+                <option>Marktplatz</option>
+                <option>Universität</option>
+                <option>Einkaufszentrum</option>
+                <option>Bergwerksviertel</option>
+                <option>Werksgelände</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="payment-section">
+            <h4>Zahlung</h4>
+            <div class="selected-payment-method" id="selectedPaymentMethod">
+              <span class="material-icons">credit_card</span>
+              <span>Bitte wählen Sie eine Zahlungsmethode</span>
+            </div>
+
+            <div class="payment-options">
+              <div class="payment-option" data-method="credit">
+                <span class="material-icons">credit_card</span>
+                <span>Kreditkarte</span>
+              </div>
+              <div class="payment-option" data-method="bank">
+                <span class="material-icons">account_balance</span>
+                <span>Lastschrift</span>
+              </div>
+              <div class="payment-option" data-method="paypal">
+                <span class="material-icons">smartphone</span>
+                <span>PayPal</span>
+              </div>
+            </div>
+
+            <div class="credit-card-form" id="creditCardForm" style="display: none;">
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="card-number">Kartennummer</label>
+                  <input type="text" id="card-number" class="form-input" placeholder="1234 5678 9012 3456">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="card-name">Name auf der Karte</label>
+                  <input type="text" id="card-name" class="form-input" placeholder="Max Mustermann">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="card-expiry">Gültig bis</label>
+                  <input type="text" id="card-expiry" class="form-input" placeholder="MM/JJ">
+                </div>
+                <div class="form-field">
+                  <label for="card-cvv">CVV</label>
+                  <input type="text" id="card-cvv" class="form-input" placeholder="123">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="total-section">
+            <div class="total-row grand-total">
+              <span>Gesamtpreis:</span>
+              <span id="totalPriceDisplay">2,50 €</span>
+            </div>
+          </div>
+
+          <div class="ticket-actions">
+            <button class="mdc-button mdc-button--outlined" id="cancelTicketBtn">
+              <span class="mdc-button__ripple"></span>
+              <span class="mdc-button__label">Abbrechen</span>
+            </button>
+            <button class="mdc-button mdc-button--raised primary-button" id="buyAndDownloadBtn">
+              <span class="mdc-button__ripple"></span>
+              <span class="mdc-button__label">Kaufen & herunterladen</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ticket erfolgreich erzeugt Modal -->
+  <div class="modal" id="ticketSuccessModal">
+    <div class="modal-content">
+      <div class="modal-header success-header">
+        <h3 class="title-medium">Ticket erfolgreich erzeugt</h3>
+        <span class="material-icons close-modal" id="closeTicketSuccessModal">close</span>
+      </div>
+      <div class="modal-body">
+        <div class="success-message">
+          <div class="success-icon">
+            <span class="material-icons">check_circle</span>
+          </div>
+          <h4>Ihr Ticket wurde erfolgreich erzeugt!</h4>
+          <p>Ihr Ticket wurde als PDF heruntergeladen. Sie erhalten zudem eine E-Mail mit Ihrem Ticket.</p>
+
+          <div class="ticket-preview">
+            <div class="ticket-preview-header">
+              <img src="assets/logo.png" alt="ZagMobi Logo" class="ticket-logo">
+              <div class="ticket-type" id="previewTicketType">Einzelfahrt</div>
+            </div>
+            <div class="ticket-preview-details">
+              <div class="detail-row">
+                <span class="detail-label">Fahrgast:</span>
+                <span class="detail-value" id="previewPassenger">Max Mustermann</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Strecke:</span>
+                <span class="detail-value" id="previewRoute">Hauptbahnhof → Universität</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Datum:</span>
+                <span class="detail-value" id="previewDate">01.03.2025, 14:30 Uhr</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Preis:</span>
+                <span class="detail-value" id="previewPrice">2,50 €</span>
+              </div>
+            </div>
+            <div class="ticket-qr-code">
+              <div class="qr-placeholder"></div>
+              <div class="ticket-number" id="previewTicketNumber">ZAG-1234567890</div>
+            </div>
+          </div>
+
+          <div class="success-actions">
+            <button class="mdc-button mdc-button--outlined" id="downloadAgainBtn">
+              <span class="mdc-button__ripple"></span>
+              <span class="material-icons">download</span>
+              <span class="mdc-button__label">Erneut herunterladen</span>
+            </button>
+            <button class="mdc-button mdc-button--raised primary-button" id="closeSuccessBtn">
+              <span class="mdc-button__ripple"></span>
+              <span class="mdc-button__label">Schließen</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-container">
+      <div class="footer-column">
+        <div class="footer-logo">
+          <img src="assets/logo-white.png" alt="ZagMobi Logo (weiß)">
+        </div>
+        <p class="body-medium">Ihr zuverlässiger Partner für Bus- und Straßenbahnverkehr in der Stadt Zagen.</p>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="title-small">Nützliche Links</h4>
+        <ul class="footer-links">
+          <li><a href="linien.html">Fahrpläne</a></li>
+          <li><a href="tickets.html">Tickets & Preise</a></li>
+          <li><a href="linien.html#network-section">Liniennetz</a></li>
+          <li><a href="#">Störungsmeldungen</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="title-small">Unternehmen</h4>
+        <ul class="footer-links">
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="#">Karriere</a></li>
+          <li><a href="#">Nachhaltigkeit</a></li>
+          <li><a href="#">Projekte</a></li>
+          <li><a href="#">Partner</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="title-small">Rechtliches</h4>
+        <ul class="footer-links">
+          <li><a href="#">Impressum</a></li>
+          <li><a href="#">Datenschutz</a></li>
+          <li><a href="#">AGB</a></li>
+          <li><a href="#">Beförderungsbedingungen</a></li>
+          <li><a href="#">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>&copy; 2025 ZagMobi - Verkehrsgesellschaft mbH. Alle Rechte vorbehalten.</p>
+      <p>Minecraft Roleplay Server: Zagen - Das offizielle Nahverkehrsunternehmen</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Material Design JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/14.0.0/material-components-web.min.js"></script>
+
+<!-- PDF.js Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- Eigene JavaScript Dateien -->
+<script src="js/scripts.js"></script>
+<script src="js/tickets.js"></script>
+</body>
+</html>

@@ -1,0 +1,1196 @@
+/* ===== Fernverkehr Ankündigung ===== */
+.coming-soon-section {
+    background-color: rgba(0, 74, 173, 0.05);
+}
+
+.announcement-card {
+    background-color: white;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--md-elevation-level2);
+    overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.announcement-header {
+    background-color: var(--primary-dark);
+    color: white;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.announcement-icon {
+    font-size: 3rem;
+}
+
+.announcement-content {
+    padding: 2rem;
+}
+
+.announcement-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.announcement-features {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    width: calc(25% - 1rem);
+    min-width: 120px;
+}
+
+.feature-item .material-icons {
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+}
+
+.planned-connections {
+    margin: 2rem 0;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-medium);
+}
+
+.connection-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.connection-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.connection-time {
+    font-weight: 500;
+    color: var(--primary-dark);
+}.coming-soon {
+     position: relative;
+     overflow: hidden;
+ }
+
+.coming-soon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--primary-light);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    z-index: 1;
+    border-radius: 0 var(--border-radius-medium) 0 var(--border-radius-small);
+}
+
+.soon-tag {
+    background-color: var(--primary-light);
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    vertical-align: middle;
+    font-weight: 500;
+    margin-left: 0.5rem;
+}/* ===== Grundlegende Variablen ===== */
+:root {
+    /* ZagMobi Firmenfarben - aus dem Logo abgeleitet */
+    --primary-dark: #004AAD; /* Dunkles Blau für ZAG */
+    --primary-light: #38B6FF; /* Helles Blau für MOBI */
+    --background: #FFFFFF; /* Weißer Hintergrund */
+
+    /* Verkehrsmittel-Farben */
+    --s-bahn-color: #009A5B; /* Grün für S-Bahnen */
+    --regional-color: #DB2B32; /* Rot für Regionalbahnen */
+    --ice-color: #CC0000; /* Rot für Fernverkehr */
+
+    /* Material Design Elevation */
+    --md-elevation-level1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --md-elevation-level2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    --md-elevation-level3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    --md-elevation-level4: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+    /* MD3 Typografie */
+    --font-family: 'Roboto', sans-serif;
+
+    /* Border-Radius für runde Ecken */
+    --border-radius-small: 8px;
+    --border-radius-medium: 16px;
+    --border-radius-large: 24px;
+}
+
+/* ===== Grundlegende Resets ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+body {
+    background-color: var(--background);
+    color: rgba(0, 0, 0, 0.87);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Material Design 3 Typografie */
+.title-large {
+    font-size: 2.25rem;
+    font-weight: 500;
+    line-height: 2.5rem;
+    letter-spacing: 0;
+    margin-bottom: 1rem;
+}
+
+.title-medium {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2rem;
+    letter-spacing: 0.015rem;
+    margin-bottom: 0.75rem;
+}
+
+.title-small {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.01rem;
+    margin-bottom: 0.5rem;
+}
+
+.headline-medium {
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 2.25rem;
+    letter-spacing: 0;
+    margin-bottom: 1rem;
+}
+
+.body-large {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    letter-spacing: 0.015rem;
+}
+
+.body-medium {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    letter-spacing: 0.015rem;
+}
+
+/* ===== Header & Navigation ===== */
+.app-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--background);
+    box-shadow: var(--md-elevation-level1);
+    z-index: 10;
+    padding: 0.25rem 1.5rem; /* Reduziertes Padding oben/unten */
+    display: flex;
+    align-items: center;
+    height: 110px; /* Leicht reduzierte Höhe */
+}
+
+.mdc-top-app-bar__row {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo-container {
+    height: 120px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 100%;
+    max-height: 100px;
+    /* Keine Skalierung/Verzerrung, um das Logo genau wie im Original zu erhalten */
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    color: rgba(0, 0, 0, 0.87);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--border-radius-small);
+    transition: background-color 0.3s, color 0.3s;
+    position: relative;
+}
+
+.nav-link:hover {
+    background-color: rgba(0, 74, 173, 0.05);
+    color: var(--primary-dark);
+}
+
+.nav-link.active {
+    color: var(--primary-dark);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0.75rem;
+    right: 0.75rem;
+    height: 3px;
+    background-color: var(--primary-dark);
+    border-radius: 1.5px;
+}
+
+/* ===== Hero Section ===== */
+.hero-section {
+    background: linear-gradient(rgba(0, 74, 173, 0.85), rgba(56, 182, 255, 0.65)), url('../assets/hero-bg.jpg') center/cover no-repeat;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 6rem 1rem 3rem;
+    position: relative;
+    margin-top: 110px; /* Angepasst an geänderten Header */
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--md-elevation-level2);
+    transform: translateY(-20px);
+}
+
+/* ===== Material Design 3 Button ===== */
+.primary-button {
+    background-color: var(--primary-light) !important;
+    color: white !important;
+    border-radius: var(--border-radius-small) !important;
+    padding: 0 1.5rem !important;
+    height: 40px !important;
+    text-transform: none !important;
+    font-weight: 500 !important;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease !important;
+    box-shadow: var(--md-elevation-level1) !important;
+}
+
+.primary-button:hover {
+    background-color: var(--primary-dark) !important;
+    box-shadow: var(--md-elevation-level2) !important;
+    transform: translateY(-2px);
+}
+
+/* ===== Section Styles ===== */
+.section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 0.75rem;
+    color: var(--primary-dark);
+    font-weight: 500;
+}
+
+.section-subtitle {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.light {
+    color: white;
+}
+
+.section-subtitle.light {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* ===== Services Section ===== */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.service-card {
+    background-color: white;
+    border-radius: var(--border-radius-medium);
+    overflow: hidden;
+    box-shadow: var(--md-elevation-level1);
+    transition: all 0.3s ease;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.service-card:hover {
+    box-shadow: var(--md-elevation-level3);
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background-color: var(--primary-light);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.service-icon .material-icons {
+    font-size: 2.5rem;
+}
+
+.service-content {
+    flex: 1;
+}
+
+/* ===== Routes Section ===== */
+.routes-section {
+    background-color: var(--primary-dark);
+    color: white;
+}
+
+.routes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.route-card {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: var(--border-radius-medium);
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    box-shadow: var(--md-elevation-level1);
+}
+
+.route-card:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: scale(1.02);
+    box-shadow: var(--md-elevation-level2);
+}
+
+.route-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-right: 1.25rem;
+    color: white;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.route-icon.s-bahn {
+    background-color: var(--s-bahn-color); /* Grün für S-Bahnen */
+}
+
+.route-icon.regional {
+    background-color: var(--regional-color); /* Rot für Regionalbahnen */
+}
+
+.route-icon.ice {
+    background-color: #FFFFFF; /* Weiß mit angepasstem Text für ICE */
+    color: var(--ice-color); /* Rot für den Text */
+    border: 2px solid var(--ice-color);
+}
+
+.route-details {
+    flex: 1;
+}
+
+.route-name {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.route-schedule {
+    display: flex;
+    gap: 0.625rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.route-status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.status-active {
+    background-color: var(--primary-light);
+}
+
+.status-delayed {
+    background-color: #F44336;
+}
+
+.status-planned {
+    background-color: #78909C;
+}
+
+/* ===== About Section ===== */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-image {
+    border-radius: var(--border-radius-medium);
+    overflow: hidden;
+    box-shadow: var(--md-elevation-level2);
+    height: 400px;
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-text p {
+    margin-bottom: 1.25rem;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+    background-color: var(--primary-dark);
+    color: white;
+    padding: 1.5rem 1rem;
+    border-radius: var(--border-radius-small);
+    box-shadow: var(--md-elevation-level1);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===== Contact Section ===== */
+.contact-section {
+    background-color: var(--primary-dark);
+    color: white;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.contact-form-card {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--md-elevation-level3);
+}
+
+.form-field {
+    margin-bottom: 1.5rem;
+}
+
+.mdc-floating-label {
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.mdc-text-field {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    border-radius: var(--border-radius-small);
+}
+
+.mdc-text-field--textarea {
+    height: 150px;
+}
+
+.mdc-text-field__input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius-small);
+    font-size: 1rem;
+}
+
+.mdc-text-field__input:focus {
+    outline: none;
+    border-color: var(--primary-dark);
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.contact-details h4 {
+    margin-bottom: 0.25rem;
+}
+
+/* ===== Footer ===== */
+footer {
+    background-color: var(--primary-dark);
+    color: white;
+    padding: 5rem 0 2rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-logo {
+    margin-bottom: 1.5rem;
+    max-width: 220px; /* Größere Darstellung im Footer */
+}
+
+.footer-logo img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.footer-column p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-light);
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.copyright p {
+    margin-bottom: 0.5rem;
+}
+
+/* ===== Funktionsleiste ===== */
+.function-bar {
+    background-color: white;
+    padding: 0;
+    margin-top: -2rem;
+    position: relative;
+    z-index: 5;
+}
+
+.function-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.function-card {
+    background-color: white;
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--md-elevation-level2);
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.function-card:hover {
+    box-shadow: var(--md-elevation-level3);
+    transform: translateY(-5px);
+    background-color: var(--primary-light);
+    color: white;
+}
+
+.function-card .material-icons {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-dark);
+    transition: color 0.3s ease;
+}
+
+.function-card:hover .material-icons {
+    color: white;
+}
+
+.function-card h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* ===== Modals ===== */
+.search-modal {
+    display: none; /* Wird mit JS auf flex gesetzt */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+.search-modal-content {
+    background-color: white;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--md-elevation-level4);
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.wide-modal {
+    max-width: 900px;
+}
+
+.search-modal-header {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.search-modal-header h3 {
+    margin: 0;
+    color: var(--primary-dark);
+}
+
+.close-modal {
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.5);
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: var(--primary-dark);
+}
+
+.search-modal-body {
+    padding: 1.5rem;
+}
+
+/* ===== Verbindungssuche ===== */
+#connectionForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.input-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.search-options {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.option-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* ===== Abfahrtsmonitor ===== */
+.departure-results {
+    margin-top: 2rem;
+    display: none; /* Mit JS einblenden */
+}
+
+.departure-time {
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 1.5rem;
+}
+
+.departure-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.departure-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: var(--border-radius-small);
+    padding: 1rem;
+    box-shadow: var(--md-elevation-level1);
+    gap: 1rem;
+}
+
+.departure-item.delayed {
+    border-left: 4px solid #F44336;
+}
+
+.departure-line {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-dark);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.125rem;
+    flex-shrink: 0;
+}
+
+.departure-item.delayed .departure-time-info {
+    color: #F44336;
+}
+
+.departure-item:nth-child(2) .departure-line {
+    background-color: var(--primary-light);
+}
+
+.departure-info {
+    flex: 1;
+}
+
+.departure-destination {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.departure-platform {
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.departure-time-info {
+    text-align: right;
+    font-weight: 500;
+}
+
+.time-left {
+    font-size: 0.875rem;
+    font-weight: normal;
+}
+
+/* ===== Tickets ===== */
+.ticket-type-selector {
+    display: flex;
+    margin-bottom: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: var(--border-radius-medium);
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.ticket-category {
+    flex: 1;
+    text-align: center;
+    padding: 1rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+@media (max-width: 768px) {
+    .ticket-category {
+        flex-basis: 50%;
+    }
+}
+
+.ticket-category.active {
+    background-color: var(--primary-dark);
+    color: white;
+    font-weight: 500;
+}
+
+.ticket-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.ticket-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: var(--border-radius-small);
+    padding: 1rem;
+    box-shadow: var(--md-elevation-level1);
+}
+
+.ticket-price {
+    text-align: right;
+}
+
+.price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+}
+
+.payment-methods {
+    margin-top: 2rem;
+}
+
+.payment-options {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.payment-option {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: var(--border-radius-small);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.payment-option:hover {
+    background-color: rgba(0, 74, 173, 0.1);
+}
+
+.payment-option .material-icons {
+    font-size: 2rem;
+    color: var(--primary-dark);
+}
+
+/* ===== Liniennetz ===== */
+.network-map-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.network-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.zoom-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.mdc-icon-button {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--primary-light);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mdc-icon-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.filter-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.network-map {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: var(--border-radius-medium);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.network-map-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.network-legend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: var(--border-radius-small);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-color {
+    width: 30px;
+    height: 6px;
+    border-radius: 3px;
+}
+
+.bus-line {
+    background-color: var(--primary-dark);
+}
+
+.tram-line {
+    background-color: var(--primary-light);
+}
+
+.s-bahn-line {
+    background-color: var(--s-bahn-color); /* Grün für S-Bahnen */
+}
+
+.regional-line {
+    background-color: var(--regional-color); /* Rot für Regionalbahnen */
+}
+
+.ice-line {
+    background-color: var(--ice-color); /* Rot für ICE */
+}
+
+/* ===== Störungsmeldungen ===== */
+.disruption-banner {
+    background-color: #FEF6E6;
+    border-left: 4px solid #FF9800;
+    padding: 0.75rem 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.disruption-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.disruption-icon {
+    color: #FF9800;
+}
+
+.disruption-text {
+    flex: 1;
+}
+
+.disruption-action {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.close-banner {
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.5);
+    transition: color 0.3s ease;
+}
+
+.close-banner:hover {
+    color: var(--primary-dark);
+}
+
+@media (max-width: 768px) {
+    .function-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ticket-item,
+    .departure-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .departure-time-info,
+    .ticket-price {
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .network-controls,
+    .disruption-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .filter-controls {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .disruption-action {
+        width: 100%;
+        justify-content: space-between;
+    }
+}

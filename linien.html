@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linien & Fahrpläne - ZagMobi</title>
+
+    <!-- Material Design 3 Icons und Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/14.0.0/material-components-web.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Eigene Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/linien.css">
+</head>
+<body>
+<!-- Header -->
+<header class="mdc-top-app-bar app-bar">
+    <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="ZagMobi Logo" class="logo">
+                </a>
+            </div>
+        </section>
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Startseite</a></li>
+                    <li><a href="linien.html" class="nav-link active">Linien & Fahrpläne</a></li>
+                    <li><a href="tickets.html" class="nav-link">Tickets</a></li>
+                    <li><a href="ueber-uns.html" class="nav-link">Über uns</a></li>
+                    <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+        </section>
+    </div>
+</header>
+
+<main>
+    <!-- Page Title -->
+    <section class="page-title">
+        <div class="container">
+            <h1 class="title-large">Linien & Fahrpläne</h1>
+            <p class="headline-medium">Informieren Sie sich über unsere Verbindungen, Linien und aktuelle Fahrpläne</p>
+        </div>
+    </section>
+
+    <!-- Linien Navigation -->
+    <section class="linien-navigation">
+        <div class="container">
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-target="bus-linien">Buslinien</button>
+                <button class="nav-tab" data-target="strassenbahn-linien">Straßenbahnen</button>
+                <button class="nav-tab" data-target="sbahn-linien">S-Bahnen</button>
+                <button class="nav-tab" data-target="regional-linien">Regionalbahnen</button>
+                <button class="nav-tab" data-target="fernverkehr-linien">Fernverkehr <span class="beta-tag">Probebetrieb</span></button>
+                <button class="nav-tab" data-target="ubahn-planung">U-Bahn <span class="soon-tag">Geplant</span></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Linien Übersicht -->
+    <section class="linien-uebersicht">
+        <div class="container">
+            <!-- Buslinien -->
+            <div id="bus-linien" class="linien-section active">
+                <div class="section-header bus-header">
+                    <span class="material-icons">directions_bus</span>
+                    <h2 class="title-large">Buslinien</h2>
+                </div>
+
+                <div class="linien-grid">
+                    <div class="linie-card">
+                        <div class="linie-header bus">
+                            <div class="linie-nummer">B1</div>
+                            <div class="linie-status active">Aktiv</div>
+                        </div>
+                        <div class="linie-content">
+                            <h3 class="linie-name">Hauptbahnhof - Marktplatz - Universität</h3>
+                            <div class="linie-details">
+                                <div class="detail-item">
+                                    <span class="material-icons">schedule</span>
+                                    <span>Takt: 10 Min</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">access_time</span>
+                                    <span>Betriebszeit: 05:00 - 23:00</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">wheelchair_pickup</span>
+                                    <span>Barrierefreie Haltestellen: Alle</span>
+                                </div>
+                            </div>
+                            <div class="linie-actions">
+                                <button class="mdc-button mdc-button--outlined show-schedule-btn" data-line="B1">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Fahrplan anzeigen</span>
+                                </button>
+                                <button class="mdc-button mdc-button--outlined show-map-btn" data-line="B1">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Streckenverlauf</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="linie-card">
+                        <div class="linie-header bus">
+                            <div class="linie-nummer">B4</div>
+                            <div class="linie-status active">Aktiv</div>
+                        </div>
+                        <div class="linie-content">
+                            <h3 class="linie-name">Einkaufszentrum - Bergwerksviertel - Aussichtsturm</h3>
+                            <div class="linie-details">
+                                <div class="detail-item">
+                                    <span class="material-icons">schedule</span>
+                                    <span>Takt: 15 Min</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">access_time</span>
+                                    <span>Betriebszeit: 05:30 - 22:00</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">wheelchair_pickup</span>
+                                    <span>Barrierefreie Haltestellen: 12 von 14</span>
+                                </div>
+                            </div>
+                            <div class="linie-actions">
+                                <button class="mdc-button mdc-button--outlined show-schedule-btn" data-line="B4">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Fahrplan anzeigen</span>
+                                </button>
+                                <button class="mdc-button mdc-button--outlined show-map-btn" data-line="B4">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Streckenverlauf</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="linie-card">
+                        <div class="linie-header bus">
+                            <div class="linie-nummer">B7</div>
+                            <div class="linie-status active">Aktiv</div>
+                        </div>
+                        <div class="linie-content">
+                            <h3 class="linie-name">Hauptbahnhof - Industriegebiet - Technologiepark</h3>
+                            <div class="linie-details">
+                                <div class="detail-item">
+                                    <span class="material-icons">schedule</span>
+                                    <span>Takt: 20 Min</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">access_time</span>
+                                    <span>Betriebszeit: 06:00 - 20:00</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">wheelchair_pickup</span>
+                                    <span>Barrierefreie Haltestellen: 8 von 10</span>
+                                </div>
+                            </div>
+                            <div class="linie-actions">
+                                <button class="mdc-button mdc-button--outlined show-schedule-btn" data-line="B7">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Fahrplan anzeigen</span>
+                                </button>
+                                <button class="mdc-button mdc-button--outlined show-map-btn" data-line="B7">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Streckenverlauf</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Straßenbahnlinien -->
+            <div id="strassenbahn-linien" class="linien-section">
+                <div class="section-header tram-header">
+                    <span class="material-icons">tram</span>
+                    <h2 class="title-large">Straßenbahnlinien</h2>
+                </div>
+
+                <div class="linien-grid">
+                    <div class="linie-card">
+                        <div class="linie-header tram">
+                            <div class="linie-nummer">T2</div>
+                            <div class="linie-status delayed">Verspätet</div>
+                        </div>
+                        <div class="linie-content">
+                            <h3 class="linie-name">Zagen Hbf - Innenstadt - Werksgelände</h3>
+                            <div class="linie-details">
+                                <div class="detail-item">
+                                    <span class="material-icons">schedule</span>
+                                    <span>Takt: 8 Min</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">access_time</span>
+                                    <span>Betriebszeit: 04:30 - 23:30</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">warning</span>
+                                    <span>Störung: Einschränkungen wegen Bauarbeiten</span>
+                                </div>
+                            </div>
+                            <div class="linie-actions">
+                                <button class="mdc-button mdc-button--outlined show-schedule-btn" data-line="T2">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Fahrplan anzeigen</span>
+                                </button>
+                                <button class="mdc-button mdc-button--outlined show-map-btn" data-line="T2">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Streckenverlauf</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="linie-card">
+                        <div class="linie-header tram">
+                            <div class="linie-nummer">T3</div>
+                            <div class="linie-status active">Aktiv</div>
+                        </div>
+                        <div class="linie-content">
+                            <h3 class="linie-name">Ringlinie Innenstadt</h3>
+                            <div class="linie-details">
+                                <div class="detail-item">
+                                    <span class="material-icons">schedule</span>
+                                    <span>Takt: 12 Min</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">access_time</span>
+                                    <span>Betriebszeit: 06:00 - 22:00</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">wheelchair_pickup</span>
+                                    <span>Barrierefreie Haltestellen: Alle</span>
+                                </div>
+                            </div>
+                            <div class="linie-actions">
+                                <button class="mdc-button mdc-button--outlined show-schedule-btn" data-line="T3">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Fahrplan anzeigen</span>
+                                </button>
+                                <button class="mdc-button mdc-button--outlined show-map-btn" data-line="T3">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Streckenverlauf</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- S-Bahnlinien -->
+            <div id="sbahn-linien" class="linien-section">
+                <div class="section-header sbahn-header">
+                    <span class="material-icons">train</span>
+                    <h2 class="title-large">S-Bahnlinien</h2>
+                </div>
+
+                <div class="linien-grid">
+                    <div class="linie-card">
+                        <div class="linie-header sbahn">
+                            <div class="linie-nummer">S1</div>
+                            <div class="linie-status active">Aktiv</div>
+                        </div>
+                        <div class="linie-content">
+                            <h3 class="linie-name">Zagen Hbf - Vorstadt Nord - Umlandkreis</h3>
+                            <div class="linie-details">
+                                <div class="detail-item">
+                                    <span class="material-icons">schedule</span>
+                                    <span>Takt: 15 Min</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">access_time</span>
+                                    <span>Betriebszeit: 04:30 - 00:30</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">pedal_bike</span>
+                                    <span>Fahrradmitnahme möglich</span>
+                                </div>
+                            </div>
+                            <div class="linie-actions">
+                                <button class="mdc-button mdc-button--outlined show-schedule-btn" data-line="S1">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Fahrplan anzeigen</span>
+                                </button>
+                                <button class="mdc-button mdc-button--outlined show-map-btn" data-line="S1">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Streckenverlauf</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regionalbahnlinien -->
+            <div id="regional-linien" class="linien-section">
+                <div class="section-header regional-header">
+                    <span class="material-icons">directions_railway</span>
+                    <h2 class="title-large">Regionalbahnlinien</h2>
+                </div>
+
+                <div class="linien-grid">
+                    <div class="linie-card">
+                        <div class="linie-header regional">
+                            <div class="linie-nummer">RB4</div>
+                            <div class="linie-status active">Aktiv</div>
+                        </div>
+                        <div class="linie-content">
+                            <h3 class="linie-name">Zagen - Neustadt - Bergdorf</h3>
+                            <div class="linie-details">
+                                <div class="detail-item">
+                                    <span class="material-icons">schedule</span>
+                                    <span>Takt: 60 Min</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">access_time</span>
+                                    <span>Betriebszeit: 05:00 - 22:00</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">pedal_bike</span>
+                                    <span>Fahrradmitnahme möglich</span>
+                                </div>
+                            </div>
+                            <div class="linie-actions">
+                                <button class="mdc-button mdc-button--outlined show-schedule-btn" data-line="RB4">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Fahrplan anzeigen</span>
+                                </button>
+                                <button class="mdc-button mdc-button--outlined show-map-btn" data-line="RB4">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Streckenverlauf</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="linie-card">
+                        <div class="linie-header regional">
+                            <div class="linie-nummer">RE2</div>
+                            <div class="linie-status delayed">Verspätet</div>
+                        </div>
+                        <div class="linie-content">
+                            <h3 class="linie-name">Zagen Hbf - Grünstadt - Blaustadt</h3>
+                            <div class="linie-details">
+                                <div class="detail-item">
+                                    <span class="material-icons">schedule</span>
+                                    <span>Takt: 120 Min</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">access_time</span>
+                                    <span>Betriebszeit: 06:00 - 21:00</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">warning</span>
+                                    <span>Störung: Verspätungen wegen Signalstörung</span>
+                                </div>
+                            </div>
+                            <div class="linie-actions">
+                                <button class="mdc-button mdc-button--outlined show-schedule-btn" data-line="RE2">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Fahrplan anzeigen</span>
+                                </button>
+                                <button class="mdc-button mdc-button--outlined show-map-btn" data-line="RE2">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Streckenverlauf</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fernverkehrslinien -->
+            <div id="fernverkehr-linien" class="linien-section">
+                <div class="section-header ice-header">
+                    <span class="material-icons">electric_train</span>
+                    <h2 class="title-large">Fernverkehrslinien <span class="beta-tag">Probebetrieb</span></h2>
+                </div>
+
+                <div class="beta-notice">
+                    <div class="beta-icon">
+                        <span class="material-icons">new_releases</span>
+                    </div>
+                    <div class="beta-text">
+                        <h3 class="title-medium">Probebetrieb seit Februar 2025</h3>
+                        <p>Unsere Fernverkehrsverbindungen befinden sich aktuell im Probebetrieb. Die Fahrpläne können sich kurzfristig ändern. Bitte informieren Sie sich vor Ihrer Reise über den aktuellen Status.</p>
+                    </div>
+                </div>
+
+                <div class="linien-grid">
+                    <div class="linie-card">
+                        <div class="linie-header ice">
+                            <div class="linie-nummer">IC</div>
+                            <div class="linie-status beta">Probebetrieb</div>
+                        </div>
+                        <div class="linie-content">
+                            <h3 class="linie-name">Zagen Hbf - Hauptstadt</h3>
+                            <div class="linie-details">
+                                <div class="detail-item">
+                                    <span class="material-icons">schedule</span>
+                                    <span>Takt: 120 Min</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">access_time</span>
+                                    <span>Betriebszeit: 06:00 - 20:00</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">speed</span>
+                                    <span>Fahrzeit: 1h 45min</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">wifi</span>
+                                    <span>WLAN: Verfügbar</span>
+                                </div>
+                            </div>
+                            <div class="linie-actions">
+                                <button class="mdc-button mdc-button--outlined show-schedule-btn" data-line="IC">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Fahrplan anzeigen</span>
+                                </button>
+                                <button class="mdc-button mdc-button--outlined show-map-btn" data-line="IC">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Streckenverlauf</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="linie-card">
+                        <div class="linie-header ice">
+                            <div class="linie-nummer">ICE</div>
+                            <div class="linie-status beta">Wochenend-Betrieb</div>
+                        </div>
+                        <div class="linie-content">
+                            <h3 class="linie-name">Zagen Hbf - Metropolregion</h3>
+                            <div class="linie-details">
+                                <div class="detail-item">
+                                    <span class="material-icons">event</span>
+                                    <span>Betriebstage: Fr, Sa, So</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">access_time</span>
+                                    <span>Abfahrtszeiten: 08:00, 12:00, 16:00</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">speed</span>
+                                    <span>Fahrzeit: 3h 30min</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">restaurant</span>
+                                    <span>Bordrestaurant: Verfügbar</span>
+                                </div>
+                            </div>
+                            <div class="linie-actions">
+                                <button class="mdc-button mdc-button--outlined show-schedule-btn" data-line="ICE">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Fahrplan anzeigen</span>
+                                </button>
+                                <button class="mdc-button mdc-button--outlined show-map-btn" data-line="ICE">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Streckenverlauf</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- U-Bahn Planung -->
+            <div id="ubahn-planung" class="linien-section">
+                <div class="section-header ubahn-header">
+                    <span class="material-icons">subway</span>
+                    <h2 class="title-large">U-Bahn-Linien <span class="soon-tag">In Planung</span></h2>
+                </div>
+
+                <div class="coming-soon-container">
+                    <div class="coming-soon-image">
+                        <span class="material-icons">subway</span>
+                    </div>
+                    <h3 class="title-large">U-Bahn-Netz in Planung</h3>
+                    <p class="coming-soon-description">
+                        ZagMobi plant den Ausbau des Verkehrsnetzes durch ein modernes U-Bahn-System. Die Bauarbeiten werden in den kommenden Jahren beginnen. Das neue U-Bahn-Netz wird schnelle Verbindungen unter der Stadt ermöglichen und das bestehende Verkehrsnetz optimal ergänzen.
+                    </p>
+
+                    <div class="planned-connections">
+                        <h4 class="title-medium">Geplante Linien:</h4>
+                        <ul class="ubahn-lines">
+                            <li><span class="ubahn-line u1">U1</span> <span class="connection-route">Hauptbahnhof — Zentrum — Universität</span></li>
+                            <li><span class="ubahn-line u2">U2</span> <span class="connection-route">Industriegebiet — Messe — Hauptbahnhof — Stadion</span></li>
+                            <li><span class="ubahn-line u3">U3</span> <span class="connection-route">Circular Line (Ringbahn)</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="blueprint-container">
+                        <h4 class="title-medium">Vorläufiger Netzplan</h4>
+                        <div class="blueprint">
+                            <div class="blueprint-image">
+                                <!-- Platzhalter für Netzplan-Grafik -->
+                                <div class="blueprint-placeholder">
+                                    <span class="material-icons">map</span>
+                                    <span>U-Bahn Netzplan</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Liniennetz -->
+    <section class="network-section">
+        <div class="container">
+            <h2 class="section-title">Liniennetz</h2>
+            <p class="section-subtitle">Übersichtskarte aller Linien des ZagMobi-Verkehrsnetzes</p>
+
+            <div class="network-controls">
+                <div class="zoom-controls">
+                    <button class="mdc-icon-button" id="zoomIn">
+                        <span class="material-icons">add</span>
+                    </button>
+                    <button class="mdc-icon-button" id="zoomOut">
+                        <span class="material-icons">remove</span>
+                    </button>
+                </div>
+                <div class="filter-controls">
+                    <label class="filter-item">
+                        <input type="checkbox" checked> Busse
+                    </label>
+                    <label class="filter-item">
+                        <input type="checkbox" checked> Straßenbahnen
+                    </label>
+                    <label class="filter-item">
+                        <input type="checkbox" checked> S-Bahnen
+                    </label>
+                    <label class="filter-item">
+                        <input type="checkbox" checked> Regionalbahnen
+                    </label>
+                    <label class="filter-item">
+                        <input type="checkbox" checked> Fernverkehr (Probebetrieb)
+                    </label>
+                </div>
+            </div>
+
+            <div class="network-map">
+                <img src="assets/liniennetz.jpg" alt="ZagMobi Liniennetz" class="network-map-img">
+            </div>
+
+            <div class="network-legend">
+                <div class="legend-item">
+                    <span class="legend-color bus-line"></span>
+                    <span>Buslinie</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color tram-line"></span>
+                    <span>Straßenbahnlinie</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color s-bahn-line"></span>
+                    <span>S-Bahn</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color regional-line"></span>
+                    <span>Regionalbahn</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color ice-line"></span>
+                    <span>Fernverkehr (Probebetrieb)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fahrplan-Modal -->
+    <div class="modal" id="scheduleModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="title-medium">Fahrplan <span id="scheduleLineId">B1</span></h3>
+                <span class="material-icons close-modal" id="closeScheduleModal">close</span>
+            </div>
+            <div class="modal-body">
+                <div class="schedule-details">
+                    <h4 id="scheduleLineName">Hauptbahnhof - Marktplatz - Universität</h4>
+                    <div class="schedule-tabs">
+                        <button class="schedule-tab active" data-direction="outbound">Hinfahrt</button>
+                        <button class="schedule-tab" data-direction="inbound">Rückfahrt</button>
+                    </div>
+                    <div class="schedule-table-container">
+                        <table class="schedule-table">
+                            <thead>
+                            <tr>
+                                <th>Haltestelle</th>
+                                <th>Ankunft</th>
+                                <th>Abfahrt</th>
+                                <th>Besonderheiten</th>
+                            </tr>
+                            </thead>
+                            <tbody id="scheduleTableBody">
+                            <!-- Dynamisch gefüllt -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Streckenverlauf-Modal -->
+    <div class="modal" id="mapModal">
+        <div class="modal-content wide-modal">
+            <div class="modal-header" id="mapModalHeader">
+                <h3 class="title-medium">Streckenverlauf <span id="mapLineId">B1</span></h3>
+                <span class="material-icons close-modal" id="closeMapModal">close</span>
+            </div>
+            <div class="modal-body">
+                <div class="route-map-container" id="routeMapContainer">
+                    <!-- Dynamisch gefüllt -->
+                </div>
+                <div class="route-stops">
+                    <h4>Haltestellen</h4>
+                    <ul id="routeStopsList">
+                        <!-- Dynamisch gefüllt -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="assets/logo-white.png" alt="ZagMobi Logo (weiß)">
+                </div>
+                <p class="body-medium">Ihr zuverlässiger Partner für Bus- und Straßenbahnverkehr in der Stadt Zagen.</p>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="title-small">Nützliche Links</h4>
+                <ul class="footer-links">
+                    <li><a href="linien.html">Fahrpläne</a></li>
+                    <li><a href="tickets.html">Tickets & Preise</a></li>
+                    <li><a href="linien.html#network-section">Liniennetz</a></li>
+                    <li><a href="#">Störungsmeldungen</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="title-small">Unternehmen</h4>
+                <ul class="footer-links">
+                    <li><a href="ueber-uns.html">Über uns</a></li>
+                    <li><a href="#">Karriere</a></li>
+                    <li><a href="#">Nachhaltigkeit</a></li>
+                    <li><a href="#">Projekte</a></li>
+                    <li><a href="#">Partner</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="title-small">Rechtliches</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Impressum</a></li>
+                    <li><a href="#">Datenschutz</a></li>
+                    <li><a href="#">AGB</a></li>
+                    <li><a href="#">Beförderungsbedingungen</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2025 ZagMobi - Verkehrsgesellschaft mbH. Alle Rechte vorbehalten.</p>
+            <p>Minecraft Roleplay Server: Zagen - Das offizielle Nahverkehrsunternehmen</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Material Design JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/14.0.0/material-components-web.min.js"></script>
+
+<!-- Eigene JavaScript Dateien -->
+<script src="js/scripts.js"></script>
+<script src="js/linien.js"></script>
+</body>
+</html>
